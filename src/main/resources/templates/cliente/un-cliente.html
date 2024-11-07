@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title th:text="${titulo}"></title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav th:replace="~{layout/base :: navbar}"></nav>
+    <div class="container mt-4">
+        <a th:href="'/cliente/all'" class="btn btn-secondary mb-3">Volver</a>
+        
+        <h1 class="display-4 text-center" th:text="${titular}"></h1>
+        <p class="lead text-center" th:text="${text}"></p>
+        
+        <div class="table-responsive">
+            <table class="table table-bordered mt-4">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Campo</th>
+                        <th scope="col">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td><span th:text="${cliente.id}"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre</td>
+                        <td><span th:text="${cliente.nombre}"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido</td>
+                        <td><span th:text="${cliente.apellido}"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><span th:text="${cliente.email}"></span></td>
+                    </tr>
+                    <tr>
+                    	<td>Fecha</td>
+                    	<td><span th:text="${cliente.createAt}"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

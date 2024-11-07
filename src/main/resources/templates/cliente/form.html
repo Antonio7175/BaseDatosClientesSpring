@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="~{layout/base :: head}"></head>
+<body>
+    <!-- Navigation bar bootstrap -->
+    <nav th:replace="~{layout/base :: navbar}"></nav>
+
+    <div class="container mt-4">
+        <h1 class="text-center" th:text="${titulo}"></h1>
+
+        <form th:action="@{/cliente/form}" th:object="${cliente}" method="post">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>
+                                <input type="text" th:field="*{nombre}" class="form-control"/>
+                                <small th:if="${#fields.hasErrors('nombre')}" 
+                                       th:errors="*{nombre}" 
+                                       class="form-text text-danger"></small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Apellido</td>
+                            <td>
+                                <input type="text" th:field="*{apellido}" class="form-control"/>
+                                <small th:if="${#fields.hasErrors('apellido')}" 
+                                       th:errors="*{apellido}" 
+                                       class="form-text text-danger"></small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>E-mail</td>
+                            <td>
+                                <input type="email" th:field="*{email}" class="form-control"/>
+                                <small th:if="${#fields.hasErrors('email')}" 
+                                       th:errors="*{email}" 
+                                       class="form-text text-danger"></small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fecha</td>
+                            <td>
+                                <input type="date" th:field="*{createAt}" class="form-control"/>
+                                <small th:if="${#fields.hasErrors('createAt')}" 
+                                       th:errors="*{createAt}" 
+                                       class="form-text text-danger"></small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Guardar cliente" class="btn btn-primary"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input type="hidden" th:field="*{id}"/>
+        </form>
+    </div>
+
+    <div th:replace="~{layout/base :: footer}"></div>
+</body>
+</html>
